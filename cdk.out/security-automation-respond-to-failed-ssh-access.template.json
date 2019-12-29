@@ -1,0 +1,1219 @@
+{
+  "Resources": {
+    "abacVPC9D48DD0B": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": "10.13.0.0/21",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": [
+          {
+            "Key": "Owner",
+            "Value": "Mystique"
+          },
+          {
+            "Key": "OwnerProfile",
+            "Value": "https://github.com/miztiik"
+          },
+          {
+            "Key": "ToKnowMore",
+            "Value": "https://youtube.com/c/valaxytechnologies"
+          },
+          {
+            "Key": "Name",
+            "Value": "security-automation-respond-to-failed-ssh-access/abacVPC"
+          },
+          {
+            "Key": "ServiceProvider",
+            "Value": "KonStone"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/abacVPC/Resource"
+      }
+    },
+    "abacVPCpubSubnetSubnet1Subnet778A4E1F": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.13.0.0/24",
+        "VpcId": {
+          "Ref": "abacVPC9D48DD0B"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            0,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "Owner",
+            "Value": "Mystique"
+          },
+          {
+            "Key": "OwnerProfile",
+            "Value": "https://github.com/miztiik"
+          },
+          {
+            "Key": "ToKnowMore",
+            "Value": "https://youtube.com/c/valaxytechnologies"
+          },
+          {
+            "Key": "Name",
+            "Value": "security-automation-respond-to-failed-ssh-access/abacVPC/pubSubnetSubnet1"
+          },
+          {
+            "Key": "ServiceProvider",
+            "Value": "KonStone"
+          },
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "pubSubnet"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/abacVPC/pubSubnetSubnet1/Subnet"
+      }
+    },
+    "abacVPCpubSubnetSubnet1RouteTable32D8E039": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "abacVPC9D48DD0B"
+        },
+        "Tags": [
+          {
+            "Key": "Owner",
+            "Value": "Mystique"
+          },
+          {
+            "Key": "OwnerProfile",
+            "Value": "https://github.com/miztiik"
+          },
+          {
+            "Key": "ToKnowMore",
+            "Value": "https://youtube.com/c/valaxytechnologies"
+          },
+          {
+            "Key": "Name",
+            "Value": "security-automation-respond-to-failed-ssh-access/abacVPC/pubSubnetSubnet1"
+          },
+          {
+            "Key": "ServiceProvider",
+            "Value": "KonStone"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/abacVPC/pubSubnetSubnet1/RouteTable"
+      }
+    },
+    "abacVPCpubSubnetSubnet1RouteTableAssociation089ABDFC": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "abacVPCpubSubnetSubnet1RouteTable32D8E039"
+        },
+        "SubnetId": {
+          "Ref": "abacVPCpubSubnetSubnet1Subnet778A4E1F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/abacVPC/pubSubnetSubnet1/RouteTableAssociation"
+      }
+    },
+    "abacVPCpubSubnetSubnet1DefaultRouteC3D14C5F": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "abacVPCpubSubnetSubnet1RouteTable32D8E039"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "abacVPCIGW9B2D9D99"
+        }
+      },
+      "DependsOn": [
+        "abacVPCVPCGW393F7A8E"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/abacVPC/pubSubnetSubnet1/DefaultRoute"
+      }
+    },
+    "abacVPCpubSubnetSubnet2SubnetA19C39F1": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.13.1.0/24",
+        "VpcId": {
+          "Ref": "abacVPC9D48DD0B"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            1,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "Owner",
+            "Value": "Mystique"
+          },
+          {
+            "Key": "OwnerProfile",
+            "Value": "https://github.com/miztiik"
+          },
+          {
+            "Key": "ToKnowMore",
+            "Value": "https://youtube.com/c/valaxytechnologies"
+          },
+          {
+            "Key": "Name",
+            "Value": "security-automation-respond-to-failed-ssh-access/abacVPC/pubSubnetSubnet2"
+          },
+          {
+            "Key": "ServiceProvider",
+            "Value": "KonStone"
+          },
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "pubSubnet"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/abacVPC/pubSubnetSubnet2/Subnet"
+      }
+    },
+    "abacVPCpubSubnetSubnet2RouteTableFD203BDA": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "abacVPC9D48DD0B"
+        },
+        "Tags": [
+          {
+            "Key": "Owner",
+            "Value": "Mystique"
+          },
+          {
+            "Key": "OwnerProfile",
+            "Value": "https://github.com/miztiik"
+          },
+          {
+            "Key": "ToKnowMore",
+            "Value": "https://youtube.com/c/valaxytechnologies"
+          },
+          {
+            "Key": "Name",
+            "Value": "security-automation-respond-to-failed-ssh-access/abacVPC/pubSubnetSubnet2"
+          },
+          {
+            "Key": "ServiceProvider",
+            "Value": "KonStone"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/abacVPC/pubSubnetSubnet2/RouteTable"
+      }
+    },
+    "abacVPCpubSubnetSubnet2RouteTableAssociation6DA19BD1": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "abacVPCpubSubnetSubnet2RouteTableFD203BDA"
+        },
+        "SubnetId": {
+          "Ref": "abacVPCpubSubnetSubnet2SubnetA19C39F1"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/abacVPC/pubSubnetSubnet2/RouteTableAssociation"
+      }
+    },
+    "abacVPCpubSubnetSubnet2DefaultRoute15865436": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "abacVPCpubSubnetSubnet2RouteTableFD203BDA"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "abacVPCIGW9B2D9D99"
+        }
+      },
+      "DependsOn": [
+        "abacVPCVPCGW393F7A8E"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/abacVPC/pubSubnetSubnet2/DefaultRoute"
+      }
+    },
+    "abacVPCIGW9B2D9D99": {
+      "Type": "AWS::EC2::InternetGateway",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Owner",
+            "Value": "Mystique"
+          },
+          {
+            "Key": "OwnerProfile",
+            "Value": "https://github.com/miztiik"
+          },
+          {
+            "Key": "ToKnowMore",
+            "Value": "https://youtube.com/c/valaxytechnologies"
+          },
+          {
+            "Key": "Name",
+            "Value": "security-automation-respond-to-failed-ssh-access/abacVPC"
+          },
+          {
+            "Key": "ServiceProvider",
+            "Value": "KonStone"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/abacVPC/IGW"
+      }
+    },
+    "abacVPCVPCGW393F7A8E": {
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Properties": {
+        "VpcId": {
+          "Ref": "abacVPC9D48DD0B"
+        },
+        "InternetGatewayId": {
+          "Ref": "abacVPCIGW9B2D9D99"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/abacVPC/VPCGW"
+      }
+    },
+    "websecgrp8CE62532": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Allow internet access from the world",
+        "SecurityGroupEgress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1"
+          }
+        ],
+        "SecurityGroupIngress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow internet access from the world.",
+            "FromPort": 22,
+            "IpProtocol": "tcp",
+            "ToPort": 22
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Owner",
+            "Value": "Mystique"
+          },
+          {
+            "Key": "OwnerProfile",
+            "Value": "https://github.com/miztiik"
+          },
+          {
+            "Key": "ToKnowMore",
+            "Value": "https://youtube.com/c/valaxytechnologies"
+          }
+        ],
+        "VpcId": {
+          "Ref": "abacVPC9D48DD0B"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/web_sec_grp/Resource"
+      }
+    },
+    "ec2ssmroleid07802BEF": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "ec2.",
+                      {
+                        "Ref": "AWS::URLSuffix"
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/AmazonSSMManagedInstanceCore"
+              ]
+            ]
+          }
+        ],
+        "RoleName": "instace_profile_role",
+        "Tags": [
+          {
+            "Key": "Owner",
+            "Value": "Mystique"
+          },
+          {
+            "Key": "OwnerProfile",
+            "Value": "https://github.com/miztiik"
+          },
+          {
+            "Key": "ToKnowMore",
+            "Value": "https://youtube.com/c/valaxytechnologies"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/ec2ssmroleid/Resource"
+      }
+    },
+    "ec2ssmroleidDefaultPolicy2A24329B": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "logs:Create*",
+                "logs:PutLogEvents"
+              ],
+              "Effect": "Allow",
+              "Resource": "arn:aws:logs:*:*:*",
+              "Sid": "PutBucketPolicy"
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "ec2ssmroleidDefaultPolicy2A24329B",
+        "Roles": [
+          {
+            "Ref": "ec2ssmroleid07802BEF"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/ec2ssmroleid/DefaultPolicy/Resource"
+      }
+    },
+    "instProfile01Id": {
+      "Type": "AWS::IAM::InstanceProfile",
+      "Properties": {
+        "Roles": [
+          {
+            "Ref": "ec2ssmroleid07802BEF"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/instProfile01Id"
+      }
+    },
+    "sshMonitoredInstance01": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "IamInstanceProfile": {
+          "Ref": "instProfile01Id"
+        },
+        "ImageId": {
+          "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter"
+        },
+        "InstanceType": "t2.micro",
+        "Monitoring": false,
+        "NetworkInterfaces": [
+          {
+            "AssociatePublicIpAddress": true,
+            "DeviceIndex": "0",
+            "GroupSet": [
+              {
+                "Fn::GetAtt": [
+                  "websecgrp8CE62532",
+                  "GroupId"
+                ]
+              }
+            ],
+            "SubnetId": {
+              "Ref": "abacVPCpubSubnetSubnet1Subnet778A4E1F"
+            }
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "ServiceProvider",
+            "Value": "KonStone"
+          },
+          {
+            "Key": "Owner",
+            "Value": "Mystique"
+          },
+          {
+            "Key": "OwnerProfile",
+            "Value": "https://github.com/miztiik"
+          },
+          {
+            "Key": "ToKnowMore",
+            "Value": "https://youtube.com/c/valaxytechnologies"
+          }
+        ],
+        "UserData": {
+          "Fn::Base64": "#!/bin/bash\n#!/bin/bash\n#!/bin/bash\n#!/bin/bash -xe\n\n# Lets log everything to console for being lazy (not recommended)\nexec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1\n\n# install httpd\nyum install httpd ec2-instance-connect -y\n\n# Installing SSM Agent\nmkdir -p /tmp/ssm \\\n    && yum install -y curl \\\n    && curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm -o /tmp/ssm/amazon-ssm-agent.rpm \\\n    && sudo yum install -y /tmp/ssm/amazon-ssm-agent.rpm \\\n    && sudo systemctl restart amazon-ssm-agent\n\n# Installing AWS CloudWatch Agent FOR AMAZON LINUX RPM\nagent_dir=\"/tmp/cw_agent\"\ncw_agent_rpm=\"https://s3.amazonaws.com/amazoncloudwatch-agent/amazon_linux/amd64/latest/amazon-cloudwatch-agent.rpm\"\nmkdir -p ${agent_dir} \\\n    && cd ${agent_dir} \\\n    && sudo yum install -y curl \\\n    && curl ${cw_agent_rpm} -o ${agent_dir}/amazon-cloudwatch-agent.rpm \\\n    && sudo rpm -U ${agent_dir}/amazon-cloudwatch-agent.rpm\n\n\ncw_agent_schema=\"/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json\"\n\ncat > '/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json' << \"EOF\"\n{\n  \"agent\": {\n    \"metrics_collection_interval\": 5,\n    \"logfile\": \"/opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log\"\n  },\n  \"metrics\": {\n    \"metrics_collected\": {\n      \"mem\": {\n        \"measurement\": [\n          \"mem_used_percent\"\n        ]\n      }\n    },\n    \"append_dimensions\": {\n      \"ImageId\": \"${aws:ImageId}\",\n      \"InstanceId\": \"${aws:InstanceId}\",\n      \"InstanceType\": \"${aws:InstanceType}\"\n    },\n    \"aggregation_dimensions\": [\n      [\n        \"InstanceId\",\n        \"InstanceType\"\n      ],\n      []\n    ]\n  },\n  \"logs\": {\n    \"logs_collected\": {\n      \"files\": {\n        \"collect_list\": [\n          {\n            \"file_path\": \"/var/log/secure\",\n            \"log_group_name\": \"/Mystique/InfoSec/Automation/{instance_id}\",\n            \"timestamp_format\": \"%b %-d %H:%M:%S\",\n            \"timezone\": \"Local\"\n          }\n        ]\n      }\n    },\n    \"log_stream_name\": \"{instance_id}\"\n  }\n}\nEOF\n\n# Configure the agent to monitor ssh log file\nsudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:${cw_agent_schema} -s\n# Start the CW Agent\nsudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a status\n\n# Just in case we need to troubleshoot\ncd \"/opt/aws/amazon-cloudwatch-agent/logs/\"\n\n# sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a stop\n"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/sshMonitoredInstance01"
+      }
+    },
+    "infoSecOpsLogGroupIdE12D4206": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
+            "",
+            [
+              "/Mystique/InfoSec/Automation/",
+              {
+                "Ref": "sshMonitoredInstance01"
+              }
+            ]
+          ]
+        },
+        "RetentionInDays": 7
+      },
+      "UpdateReplacePolicy": "Retain",
+      "DeletionPolicy": "Retain",
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/infoSecOpsLogGroupId/Resource"
+      }
+    },
+    "quarantineEc2InstanceFnIdServiceRoleA32871E8": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ]
+            ]
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Owner",
+            "Value": "Mystique"
+          },
+          {
+            "Key": "OwnerProfile",
+            "Value": "https://github.com/miztiik"
+          },
+          {
+            "Key": "ToKnowMore",
+            "Value": "https://youtube.com/c/valaxytechnologies"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/quarantineEc2InstanceFnId/ServiceRole/Resource"
+      }
+    },
+    "quarantineEc2InstanceFnIdServiceRoleDefaultPolicyAF70B0F8": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "ec2:RevokeSecurityGroupIngress",
+                "ec2:DescribeSecurityGroupReferences",
+                "ec2:RevokeSecurityGroupEgress",
+                "ec2:ApplySecurityGroupsToClientVpnTargetNetwork",
+                "ec2:DescribeSecurityGroups",
+                "ec2:CreateSecurityGroup",
+                "ec2:DescribeInstances",
+                "ec2:CreateTags",
+                "ec2:StopInstances",
+                "ec2:CreateVolume",
+                "ec2:CreateSnapshots",
+                "ec2:CreateSnapshot",
+                "ec2:DescribeSnapshots",
+                "ec2:ModifyInstanceAttribute"
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+              "Sid": "AllowLambdaToQurantineEC2"
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "quarantineEc2InstanceFnIdServiceRoleDefaultPolicyAF70B0F8",
+        "Roles": [
+          {
+            "Ref": "quarantineEc2InstanceFnIdServiceRoleA32871E8"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/quarantineEc2InstanceFnId/ServiceRole/DefaultPolicy/Resource"
+      }
+    },
+    "quarantineEc2InstanceFnId8F3459BE": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "ZipFile": "# -*- coding: utf-8 -*-\n\"\"\"\n.. module: quarantine_ec2_instance\n    :Attaches: the instance a SG with no rules so it can't communicate with the outside world\n\"\"\"\n\nimport logging\nimport os\n\nimport boto3\nfrom botocore.exceptions import ClientError\n\n__author__      = 'Mystique'\n__email__       = 'miztiik@github'\n__version__     = '0.0.1'\n__status__      = 'production'\n\n\nclass global_args:\n    \"\"\"\n    Helper to define global statics\n    \"\"\"\n    TAG_NAME                    = 'quarantine_ec2_instance'\n    LOG_LEVEL                   = logging.INFO\n\n\ndef set_logging(lv=global_args.LOG_LEVEL):\n    '''\n    Helper to enable debugging\n    '''\n    logging.basicConfig(level=lv)\n    logger = logging.getLogger()\n    logger.setLevel(lv)\n    return logger\n\n\nlogger = set_logging(logging.INFO)\n\n\ndef get_qurantine_sg_id(inst_id):\n    ec2_resource = boto3.resource('ec2')\n    ec2_client = boto3.client('ec2')\n\n    q_sg_name=\"infosec-quarantine\"\n\n    inst_attr = ec2_client.describe_instances( InstanceIds=[inst_id] )['Reservations'][0]['Instances'][0]\n    if inst_attr:\n        inst_vpc_id = inst_attr.get('VpcId')\n\n    # Check or create the Quarantine SG\n    try:    \n        result = ec2_client.describe_security_groups(\n            Filters=[\n                    {\n                        'Name': 'group-name',\n                        'Values': [q_sg_name]\n                    },\n                    {\n                        'Name': 'vpc-id',\n                        'Values': [inst_vpc_id]\n                    }\n                ]\n            )\n        if result['SecurityGroups']: \n            quarantine_sg_id = result['SecurityGroups'][0]['GroupId']\n\n        else:\n            result = ec2_client.create_security_group(\n                    Description='Quarantine SG. No Ingress or Egress.',\n                    GroupName=q_sg_name,\n                    VpcId=inst_vpc_id \n                    )\n\n            security_group = ec2_resource.SecurityGroup(result['GroupId'])\n            delete_outbound_result = security_group.revoke_egress(\n                GroupId=result['GroupId'],\n                IpPermissions=[{'IpProtocol':'-1','IpRanges': [{'CidrIp':'0.0.0.0/0'}]}]\n                )\n            tag = security_group.create_tags(Tags=[\n                {'Key': 'Name','Value': \"QUARANTINE-SG\"}\n                ]\n            )\n            logger.info(f\"New quarantine Security Group Created. sg_id: {result['GroupId']}\")\n            quarantine_sg_id = result['GroupId']\n        \n    except ClientError as e:\n        logger.info(f\"Unable to find/create quarantine security group.ERROR: {str(e)}\")\n        exit\n\n    return quarantine_sg_id\n\ndef quarantine_ec2_instance(inst_id, quarantine_sg_id):\n    resp = {'status': False, 'message': {} }\n    ec2_resource = boto3.resource('ec2')\n    # Attach the instance to only the quarantine SG\n    try:\n        result = ec2_resource.Instance(inst_id).modify_attribute(Groups=[quarantine_sg_id])  \n        responseCode = result['ResponseMetadata']['HTTPStatusCode']\n        if responseCode >= 400:\n            resp['error_message'] = str(result)\n        else:\n            logger.info(f\"Instance:{inst_id} quarantined with SG:{quarantine_sg_id}\")\n            resp['status'] = True\n            resp['message'] = {'instance_id':inst_id, 'qurantine_sg_added':True, 'qurantine_sg_id': quarantine_sg_id}\n    except ClientError as e:\n        resp['message'] = {'instance_id':inst_id, 'qurantine_sg_added':False, 'error_message':str(e)}\n    return resp\n\n\ndef lambda_handler(event, context):\n    resp = {'status':False}\n    if 'inst_id' in event:\n        inst_id = event.get('inst_id')\n        if inst_id:\n            logger.info(f\"Going to qurantine Instance :{inst_id}\")\n            quarantine_sg_id = get_qurantine_sg_id(inst_id)\n            resp = quarantine_ec2_instance(inst_id, quarantine_sg_id)\n            resp['message']['event_logs'] = event['message']\n    else:\n        resp['message'] = f\"Instance ID is missing. Unable to Qurantine\"\n        resp['error_message']=f\"Instance ID is missing. Unable to Qurantine\"\n    return resp\n"
+        },
+        "Handler": "index.lambda_handler",
+        "Role": {
+          "Fn::GetAtt": [
+            "quarantineEc2InstanceFnIdServiceRoleA32871E8",
+            "Arn"
+          ]
+        },
+        "Runtime": "python3.7",
+        "FunctionName": "quarantine_ec2_instance",
+        "Tags": [
+          {
+            "Key": "Owner",
+            "Value": "Mystique"
+          },
+          {
+            "Key": "OwnerProfile",
+            "Value": "https://github.com/miztiik"
+          },
+          {
+            "Key": "ToKnowMore",
+            "Value": "https://youtube.com/c/valaxytechnologies"
+          }
+        ],
+        "Timeout": 5
+      },
+      "DependsOn": [
+        "quarantineEc2InstanceFnIdServiceRoleDefaultPolicyAF70B0F8",
+        "quarantineEc2InstanceFnIdServiceRoleA32871E8"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/quarantineEc2InstanceFnId/Resource"
+      }
+    },
+    "infoSecOpsTopicIdD21C4FE1": {
+      "Type": "AWS::SNS::Topic",
+      "Properties": {
+        "DisplayName": "InfoSecTopic",
+        "Tags": [
+          {
+            "Key": "Owner",
+            "Value": "Mystique"
+          },
+          {
+            "Key": "OwnerProfile",
+            "Value": "https://github.com/miztiik"
+          },
+          {
+            "Key": "ToKnowMore",
+            "Value": "https://youtube.com/c/valaxytechnologies"
+          }
+        ],
+        "TopicName": "InfoSecOpsTopic"
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/infoSecOpsTopicId/Resource"
+      }
+    },
+    "infoSecOpsTopicIdINFOSECOPSEMAILCOM6C4703F9": {
+      "Type": "AWS::SNS::Subscription",
+      "Properties": {
+        "Protocol": "email",
+        "TopicArn": {
+          "Ref": "infoSecOpsTopicIdD21C4FE1"
+        },
+        "Endpoint": "INFOSECOPS@EMAIL.COM"
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/infoSecOpsTopicId/INFOSECOPS@EMAIL.COM/Resource"
+      }
+    },
+    "stateMachineIdRole62656937": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "states.",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ".amazonaws.com"
+                    ]
+                  ]
+                }
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "Tags": [
+          {
+            "Key": "Owner",
+            "Value": "Mystique"
+          },
+          {
+            "Key": "OwnerProfile",
+            "Value": "https://github.com/miztiik"
+          },
+          {
+            "Key": "ToKnowMore",
+            "Value": "https://youtube.com/c/valaxytechnologies"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/stateMachineId/Role/Resource"
+      }
+    },
+    "stateMachineIdRoleDefaultPolicy0EA5EE64": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "lambda:InvokeFunction",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "quarantineEc2InstanceFnId8F3459BE",
+                  "Arn"
+                ]
+              }
+            },
+            {
+              "Action": "sns:Publish",
+              "Effect": "Allow",
+              "Resource": {
+                "Ref": "infoSecOpsTopicIdD21C4FE1"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "stateMachineIdRoleDefaultPolicy0EA5EE64",
+        "Roles": [
+          {
+            "Ref": "stateMachineIdRole62656937"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/stateMachineId/Role/DefaultPolicy/Resource"
+      }
+    },
+    "stateMachineIdF7FDD688": {
+      "Type": "AWS::StepFunctions::StateMachine",
+      "Properties": {
+        "DefinitionString": {
+          "Fn::Join": [
+            "",
+            [
+              "{\"StartAt\":\"Qurantine EC2 Instance\",\"States\":{\"Qurantine EC2 Instance\":{\"Next\":\"Notify InfoSecOps\",\"Type\":\"Task\",\"Resource\":\"",
+              {
+                "Fn::GetAtt": [
+                  "quarantineEc2InstanceFnId8F3459BE",
+                  "Arn"
+                ]
+              },
+              "\",\"ResultPath\":\"$\"},\"Notify InfoSecOps\":{\"Next\":\"SSH Errors Response Complete?\",\"Parameters\":{\"TopicArn\":\"",
+              {
+                "Ref": "infoSecOpsTopicIdD21C4FE1"
+              },
+              "\",\"Message.$\":\"$.message\",\"Subject\":\"SSH Error Response Notification\"},\"Type\":\"Task\",\"Resource\":\"arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":states:::sns:publish\"},\"SSH Errors Response Complete?\":{\"Type\":\"Choice\",\"Choices\":[{\"Variable\":\"$.SdkHttpMetadata.HttpStatusCode\",\"NumericEquals\":200,\"Next\":\"SSH Error Response Actions Succeeded\"},{\"Not\":{\"Variable\":\"$.SdkHttpMetadata.HttpStatusCode\",\"NumericEquals\":200},\"Next\":\"SSH Error Response Actions Failed\"}],\"Default\":\"SSH Error Response Actions Failed\"},\"SSH Error Response Actions Failed\":{\"Type\":\"Fail\",\"Error\":\"Check Logs\",\"Cause\":\"All Response Actions were NOT completed\"},\"SSH Error Response Actions Succeeded\":{\"Type\":\"Succeed\",\"Comment\":\"All Response Action Completed Successfully\"}},\"TimeoutSeconds\":300}"
+            ]
+          ]
+        },
+        "RoleArn": {
+          "Fn::GetAtt": [
+            "stateMachineIdRole62656937",
+            "Arn"
+          ]
+        },
+        "Tags": [
+          {
+            "Key": "Owner",
+            "Value": "Mystique"
+          },
+          {
+            "Key": "OwnerProfile",
+            "Value": "https://github.com/miztiik"
+          },
+          {
+            "Key": "ToKnowMore",
+            "Value": "https://youtube.com/c/valaxytechnologies"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/stateMachineId/Resource"
+      }
+    },
+    "sshErrorResponseFnIdServiceRoleAB99B8FB": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ]
+            ]
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Owner",
+            "Value": "Mystique"
+          },
+          {
+            "Key": "OwnerProfile",
+            "Value": "https://github.com/miztiik"
+          },
+          {
+            "Key": "ToKnowMore",
+            "Value": "https://youtube.com/c/valaxytechnologies"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/sshErrorResponseFnId/ServiceRole/Resource"
+      }
+    },
+    "sshErrorResponseFnIdServiceRoleDefaultPolicy61CD4E9C": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "states:StartExecution",
+              "Effect": "Allow",
+              "Resource": {
+                "Ref": "stateMachineIdF7FDD688"
+              },
+              "Sid": "PutBucketPolicy"
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "sshErrorResponseFnIdServiceRoleDefaultPolicy61CD4E9C",
+        "Roles": [
+          {
+            "Ref": "sshErrorResponseFnIdServiceRoleAB99B8FB"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/sshErrorResponseFnId/ServiceRole/DefaultPolicy/Resource"
+      }
+    },
+    "sshErrorResponseFnIdE34432A2": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "ZipFile": "# -*- coding: utf-8 -*-\n\"\"\"\n.. module: trigger_state_machine\n    :Actions: Trigger state machine for given arn\n    :platform: AWS\n    :copyright: (c) 2020 Mystique.,\n    :license: Apache, see LICENSE for more details.\n.. moduleauthor:: Mystique\n.. contactauthor:: miztiik@github issues\n\"\"\"\n\nimport json\nimport logging\nimport base64\nimport urllib\nimport zlib\nimport os\n\nimport boto3\nfrom botocore.exceptions import ClientError\n\n__author__      = 'Mystique'\n__email__       = 'miztiik@github'\n__version__     = '0.0.1'\n__status__      = 'production'\n\n\"\"\"\nGENERIC HELPERS\n\"\"\"\n\nclass global_args:\n    \"\"\"\n    Helper to define global statics\n    \"\"\"\n    OWNER                       = 'Mystique'\n    ENVIRONMENT                 = 'production'\n    TAG_NAME                    = 'trigger_state_machine'\n    LOG_LEVEL                   = logging.INFO\n\n\ndef set_logging(lv=global_args.LOG_LEVEL):\n    '''\n    Helper to enable debugging\n    '''\n    logging.basicConfig(level=lv)\n    logger = logging.getLogger()\n    logger.setLevel(lv)\n    return logger\n\n\n# Initialize Logger\nlogger = set_logging(logging.INFO)\n\n\ndef trigger_state_machine(event):\n    resp = {'status': False,}\n    client = boto3.client('stepfunctions')\n    try:\n        if 'STATE_MACHINE_ARN' in os.environ:\n            logger.info(f'Logs:{event}')\n            resp['message'] = client.start_execution(\n                stateMachineArn=os.environ.get('STATE_MACHINE_ARN'),\n                input=json.dumps({\n                        'inst_id': event.get('inst_id'),\n                        'message':event.get('message')\n                        }\n                    )\n                )\n            resp['status'] = True\n    except ClientError as e:\n        logger.error(f\"Something went wrong. ERROR:{str(e)}\")\n        resp['error_message'] = str(e)\n    return resp\n\n\ndef awslogs_handler(event):\n    resp = {'status': False,}\n    if 'awslogs' in event:\n        if 'data' in event['awslogs']:\n            try:\n                log_data = zlib.decompress(base64.b64decode(event[\"awslogs\"][\"data\"]), 16 + zlib.MAX_WBITS)\n                log_data = log_data.decode(\"utf-8\")\n                resp['logs'] = json.loads(log_data)\n                resp['inst_id'] = resp['logs'].get('logStream')\n                resp['message'] = resp['logs'].get('logEvents')[0].get('message')\n                resp['status'] = True\n            except ClientError as e:\n                logger.error(f\"Something went wrong. ERROR:{str(e)}\")\n                resp['error_message'] = str(e)\n    return resp\n\n\ndef lambda_handler(event, context):\n    resp = {'status': False}\n    # logger.info(f'Event:{event}')\n    event = awslogs_handler(event)\n    resp = trigger_state_machine(event)\n    # t_resp = trigger_state_machine(event)\n    # resp['status'] = t_resp.pop('status', None)\n    return resp\n\n\nif __name__ == '__main__':\n    lambda_handler({}, {})\n"
+        },
+        "Handler": "index.lambda_handler",
+        "Role": {
+          "Fn::GetAtt": [
+            "sshErrorResponseFnIdServiceRoleAB99B8FB",
+            "Arn"
+          ]
+        },
+        "Runtime": "python3.7",
+        "Environment": {
+          "Variables": {
+            "STATE_MACHINE_ARN": {
+              "Ref": "stateMachineIdF7FDD688"
+            }
+          }
+        },
+        "FunctionName": "trigger_ssh_error_response_state_machine_fn",
+        "Tags": [
+          {
+            "Key": "Owner",
+            "Value": "Mystique"
+          },
+          {
+            "Key": "OwnerProfile",
+            "Value": "https://github.com/miztiik"
+          },
+          {
+            "Key": "ToKnowMore",
+            "Value": "https://youtube.com/c/valaxytechnologies"
+          }
+        ],
+        "Timeout": 5
+      },
+      "DependsOn": [
+        "sshErrorResponseFnIdServiceRoleDefaultPolicy61CD4E9C",
+        "sshErrorResponseFnIdServiceRoleAB99B8FB"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/sshErrorResponseFnId/Resource"
+      }
+    },
+    "fnerroralarm8372B2BF": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Properties": {
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "EvaluationPeriods": 5,
+        "AlarmName": "trigger_state_machine_fn_error_alarm",
+        "MetricName": "Errors",
+        "Namespace": "AWS/Lambda",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/fn-error-alarm/Resource"
+      }
+    },
+    "sshErrorLogSubscriptionIdCanInvokeLambdaCB47F5F6": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "sshErrorResponseFnIdE34432A2",
+            "Arn"
+          ]
+        },
+        "Principal": "logs.amazonaws.com",
+        "SourceArn": {
+          "Fn::GetAtt": [
+            "infoSecOpsLogGroupIdE12D4206",
+            "Arn"
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/sshErrorLogSubscriptionId/CanInvokeLambda"
+      }
+    },
+    "sshErrorLogSubscriptionIdC05F5A25": {
+      "Type": "AWS::Logs::SubscriptionFilter",
+      "Properties": {
+        "DestinationArn": {
+          "Fn::GetAtt": [
+            "sshErrorResponseFnIdE34432A2",
+            "Arn"
+          ]
+        },
+        "FilterPattern": "[Mon, day, timestamp, ip, id, status = \"Invalid\", ...]",
+        "LogGroupName": {
+          "Ref": "infoSecOpsLogGroupIdE12D4206"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/sshErrorLogSubscriptionId/Resource"
+      }
+    },
+    "tooManySshDisconnectsFilterIdF3C10DA0": {
+      "Type": "AWS::Logs::MetricFilter",
+      "Properties": {
+        "FilterPattern": "[Mon, day, timestamp, ip, id, msg1, msg2 = \"disconnect\", ...]",
+        "LogGroupName": {
+          "Ref": "infoSecOpsLogGroupIdE12D4206"
+        },
+        "MetricTransformations": [
+          {
+            "MetricName": "tooManySshDisconnects",
+            "MetricNamespace": "MystiqueInfoSecurity",
+            "MetricValue": "1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/tooManySshDisconnectsFilterId/Resource"
+      }
+    },
+    "invalidSshUserFilterId1ED80B03": {
+      "Type": "AWS::Logs::MetricFilter",
+      "Properties": {
+        "FilterPattern": "[Mon, day, timestamp, ip, id, status = \"Invalid\", ...]",
+        "LogGroupName": {
+          "Ref": "infoSecOpsLogGroupIdE12D4206"
+        },
+        "MetricTransformations": [
+          {
+            "MetricName": "invalidSshUser",
+            "MetricNamespace": "MystiqueInfoSecurity",
+            "MetricValue": "1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/invalidSshUserFilterId/Resource"
+      }
+    },
+    "invalidSshKeyFilterIdF96EE1B7": {
+      "Type": "AWS::Logs::MetricFilter",
+      "Properties": {
+        "FilterPattern": "[Mon, day, timestamp, ip, id, msg1 = \"Connection\", msg2 = \"closed\", ...]",
+        "LogGroupName": {
+          "Ref": "infoSecOpsLogGroupIdE12D4206"
+        },
+        "MetricTransformations": [
+          {
+            "MetricName": "invalidSshKey",
+            "MetricNamespace": "MystiqueInfoSecurity",
+            "MetricValue": "1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/invalidSshKeyFilterId/Resource"
+      }
+    },
+    "tooManySshDisconnectsAlarmId43A91CBE": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Properties": {
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "EvaluationPeriods": 3,
+        "ActionsEnabled": true,
+        "AlarmDescription": "The number disconnect requests is greater then 5, even 1 time in 3 minutes",
+        "AlarmName": "too_many_ssh_disconnects_alarm",
+        "DatapointsToAlarm": 1,
+        "MetricName": "tooManySshDisconnects",
+        "Namespace": "MystiqueInfoSecurity",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/tooManySshDisconnectsAlarmId/Resource"
+      }
+    },
+    "invalidSshUserAlarmId4DBAB619": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Properties": {
+        "ComparisonOperator": "GreaterThanThreshold",
+        "EvaluationPeriods": 3,
+        "ActionsEnabled": true,
+        "AlarmActions": [
+          {
+            "Ref": "infoSecOpsTopicIdD21C4FE1"
+          }
+        ],
+        "AlarmDescription": "The number of invalid ssh users connecting is greater then 5, even 1 time in 3 minutes",
+        "AlarmName": "too_many_invalid_ssh_users_alarm",
+        "DatapointsToAlarm": 1,
+        "MetricName": "invalidSshUser",
+        "Namespace": "MystiqueInfoSecurity",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/invalidSshUserAlarmId/Resource"
+      }
+    },
+    "invalidSshKeyAlarmId84BF4DF2": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Properties": {
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "EvaluationPeriods": 3,
+        "ActionsEnabled": true,
+        "AlarmActions": [
+          {
+            "Ref": "infoSecOpsTopicIdD21C4FE1"
+          }
+        ],
+        "AlarmDescription": "The number of invalid ssh keys connecting is greater then 5, even 1 time in 3 minutes",
+        "AlarmName": "too_many_invalid_ssh_key_alarm",
+        "DatapointsToAlarm": 1,
+        "MetricName": "invalidSshKey",
+        "Namespace": "MystiqueInfoSecurity",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5
+      },
+      "Metadata": {
+        "aws:cdk:path": "security-automation-respond-to-failed-ssh-access/invalidSshKeyAlarmId/Resource"
+      }
+    }
+  },
+  "Parameters": {
+    "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter": {
+      "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
+      "Default": "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
+    }
+  },
+  "Outputs": {
+    "SecuirtyAutomationFrom": {
+      "Description": "To know more about this automation stack, check out our github page.",
+      "Value": "https://github.com/miztiik/security-automation-respond-to-failed-ssh-access"
+    },
+    "MonitoredInstance": {
+      "Description": "Web Server Public IP to attack",
+      "Value": {
+        "Fn::GetAtt": [
+          "sshMonitoredInstance01",
+          "PublicIp"
+        ]
+      }
+    },
+    "SSHAlarms": {
+      "Description": "Check out the cloudwatch Alarms",
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "https://console.aws.amazon.com/cloudwatch/home?region=",
+            {
+              "Ref": "AWS::Region"
+            },
+            "#/configuration/#alarmsV2:?search=ssh&alarmStateFilter=ALL&alarmTypeFilter=ALL"
+          ]
+        ]
+      }
+    },
+    "SubscribeToNotificationTopic": {
+      "Description": "Add your email to subscription and confirm subscription",
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "https://console.aws.amazon.com/sns/v3/home?",
+            {
+              "Ref": "AWS::Region"
+            },
+            "#/topic/",
+            {
+              "Ref": "infoSecOpsTopicIdD21C4FE1"
+            }
+          ]
+        ]
+      }
+    },
+    "ToGenInvalidKeyErrors": {
+      "Description": "Generates random key names and connects to server 30 times over 60 seconds",
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "for i in {1..30}; do ssh -i $RANDOM ec2-user@",
+            {
+              "Fn::GetAtt": [
+                "sshMonitoredInstance01",
+                "PublicIp"
+              ]
+            },
+            "; sleep 2; done &"
+          ]
+        ]
+      }
+    },
+    "ToGenInvalidUserErrors": {
+      "Description": "Generates random user names and connects to server 30 times over 60 seconds",
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "for i in {1..30}; do ssh ec2-user$RANDOM@",
+            {
+              "Fn::GetAtt": [
+                "sshMonitoredInstance01",
+                "PublicIp"
+              ]
+            },
+            "; sleep 2; done &"
+          ]
+        ]
+      }
+    }
+  }
+}
