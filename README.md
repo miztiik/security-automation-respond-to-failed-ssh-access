@@ -76,7 +76,7 @@ That is exactly what we are going to do right now using, `AWS CloudWatch`, `AWS 
 
 1. ## Testing the solution
 
-
+    1. Goto EC2>SecurityGroup>Update port22 rule to allow only your IP(to stop the world attacking the server)
     1. Goto `AWS SNS` subscribe yourself to the `InfoSecOps` SNS Topic.
     1. Use the commands given in the cloudformation template to trigger `invalid_ssh_user` logs,
     1. You should receive an email with remediation action
@@ -104,6 +104,7 @@ That is exactly what we are going to do right now using, `AWS CloudWatch`, `AWS 
 
     If you want to destroy all the resources created by the stack, Execute the below command to delete the stack, or _you can delete the stack from console as well_
 
+    1. Delete Quarantine Security Group
     1. Delete CloudWatch Lambda LogGroups
     1. Delete the stack[s],
 
