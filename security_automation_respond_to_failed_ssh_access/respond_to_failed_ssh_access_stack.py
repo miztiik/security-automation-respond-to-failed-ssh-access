@@ -179,7 +179,7 @@ class RespondToFailedSshAccessStack(core.Stack):
                 "ec2:ModifyInstanceAttribute"
             ]
         )
-        quarantine_ec2_instance_fn_perms.sid="AllowLambdaToQurantineEC2"
+        quarantine_ec2_instance_fn_perms.sid="AllowLambdaToQuarantineEC2"
         quarantine_ec2_instance_fn.add_to_role_policy( quarantine_ec2_instance_fn_perms )
 
         info_sec_ops_topic = _sns.Topic(self, "infoSecOpsTopicId",
@@ -193,7 +193,7 @@ class RespondToFailedSshAccessStack(core.Stack):
         ################# STEP FUNCTIONS EXPERIMENTAL CODE - UNSTABLE #################
         ###############################################################################
  
-        quarantine_ec2_instance_task = _sfn.Task(self, "Qurantine EC2 Instance",
+        quarantine_ec2_instance_task = _sfn.Task(self, "Quarantine EC2 Instance",
             task=_tasks.InvokeFunction(quarantine_ec2_instance_fn),
             result_path="$"
         )

@@ -600,7 +600,7 @@
               ],
               "Effect": "Allow",
               "Resource": "*",
-              "Sid": "AllowLambdaToQurantineEC2"
+              "Sid": "AllowLambdaToQuarantineEC2"
             }
           ],
           "Version": "2012-10-17"
@@ -780,7 +780,7 @@
           "Fn::Join": [
             "",
             [
-              "{\"StartAt\":\"Qurantine EC2 Instance\",\"States\":{\"Qurantine EC2 Instance\":{\"Next\":\"Notify InfoSecOps\",\"Type\":\"Task\",\"Resource\":\"",
+              "{\"StartAt\":\"Quarantine EC2 Instance\",\"States\":{\"Quarantine EC2 Instance\":{\"Next\":\"Notify InfoSecOps\",\"Type\":\"Task\",\"Resource\":\"",
               {
                 "Fn::GetAtt": [
                   "quarantineEc2InstanceFnId8F3459BE",
