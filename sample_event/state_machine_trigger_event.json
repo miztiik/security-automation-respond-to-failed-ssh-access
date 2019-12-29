@@ -1,0 +1,34 @@
+{
+  "status": true,
+  "logs": {
+    "messageType": "DATA_MESSAGE",
+    "owner": "313487964768",
+    "logGroup": "/Mystique/InfoSec/Automation/i-08ecb8bbb541d28bd",
+    "logStream": "i-08ecb8bbb541d28bd",
+    "subscriptionFilters": [
+      "security-automation-respond-to-failed-ssh-access-sshErrorLogSubscriptionIdC05F5A25-159A43CN0NQ2C"
+    ],
+    "logEvents": [
+      {
+        "id": "35182518507935877815395212747206633921617668068715069441",
+        "timestamp": 1577638693000,
+        "message": "Dec 29 16:58:13 ip-10-13-0-124 sshd[3884]: Invalid user ec2-user19853 from 85.144.205.34 port 62782",
+        "extractedFields": {
+          "7": "user",
+          "8": "ec2-user19853",
+          "9": "from",
+          "10": "85.144.205.34",
+          "11": "port",
+          "12": "62782",
+          "ip": "ip-10-13-0-124",
+          "Mon": "Dec",
+          "id": "sshd[3884]:",
+          "day": "29",
+          "timestamp": "16:58:13",
+          "status": "Invalid"
+        }
+      }
+    ]
+  },
+  "inst_id": "i-08ecb8bbb541d28bd"
+}

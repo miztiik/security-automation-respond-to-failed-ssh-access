@@ -1,0 +1,22 @@
+{
+  "Records": [
+    {
+      "EventSource": "aws:sns",
+      "EventVersion": "1.0",
+      "EventSubscriptionArn": "arn:aws:sns:us-east-1:111122223333:InfoSecOpsTopic:fb4eb00d-e901-4aa2-89cf-a7b873523fd5",
+      "Sns": {
+        "Type": "Notification",
+        "MessageId": "6afbea1f-bcf5-5ee2-a43e-bc9ef60e613e",
+        "TopicArn": "arn:aws:sns:us-east-1:111122223333:InfoSecOpsTopic",
+        "Subject": "ALARM: 'too_many_invalid_ssh_key_alarm' in US East (N. Virginia)",
+        "Message": "{'AlarmName':'too_many_invalid_ssh_key_alarm','AlarmDescription':'The number of invalid ssh keys connecting is greater then 5, even 1 time in 3 minutes','AWSAccountId':'111122223333','NewStateValue':'ALARM','NewStateReason':'Threshold Crossed: 1 out of the last 3 datapoints [5.0 (28/12/19 12:20:00)] was greater than or equal to the threshold (5.0) (minimum 1 datapoint for OK -> ALARM transition).','StateChangeTime':'2019-12-28T12:21:15.310+0000','Region':'US East (N. Virginia)','OldStateValue':'OK','Trigger':{'MetricName':'invalidSshKey','Namespace':'MystiqueInfoSecurity','StatisticType':'Statistic','Statistic':'SUM','Unit':null,'Dimensions':[],'Period':60,'EvaluationPeriods':3,'ComparisonOperator':'GreaterThanOrEqualToThreshold','Threshold':5.0,'TreatMissingData':'','EvaluateLowSampleCountPercentile':''}}",
+        "Timestamp": "2019-12-28T12:21:15.368Z",
+        "SignatureVersion": "1",
+        "Signature": "nNTPDljgO/gG80G/izRY3jsWWtrrnzV0R2lZmSBjvm+2MgNuC9JvUdTFCU5Mnkjs8zuDQSBQCnUJYsO8oQC73GpahwCbYiHiXWfKMcrkqQYK8wMoSIs2OQ49r0CrzyuH6VRLF4/H6ey4hElQkayrHKzdtvpvjLbMNATi2vCD+Y61sOetyzXPtdsDKfLogf0nAmZQ4QEAVItkKq6C6sMqHgE9ZEFB51H9CvUVcZGEbl2TWpcyupRihES/RT/9vKWZz9u9sFu2dgoNYqKZIxUBHGCioiSKpfEKZzct/1PllJcsyFl2QMbPRVcdIUlLgI8C10kILC5LrX4BCwR7QE0XCw==",
+        "SigningCertUrl": "https://sns.us-east-1.amazonaws.com/SimpleNotificationService-6aad65c2f9911b05cd53efda11f913f9.pem",
+        "UnsubscribeUrl": "https://sns.us-east-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:us-east-1:111122223333:InfoSecOpsTopic:fb4eb00d-e901-4aa2-89cf-a7b873523fd5",
+        "MessageAttributes": {}
+      }
+    }
+  ]
+}

@@ -1,1 +1,14 @@
 -e .
+aws-cdk.aws_ec2
+aws-cdk.aws_iam
+aws-cdk.aws-cloudformation
+aws-cdk.aws-lambda
+aws_cdk.aws_ssm
+aws-cdk.aws_stepfunctions
+aws-cdk.aws_stepfunctions_tasks
+aws-cdk.aws_events
+aws-cdk.aws_events_targets
+aws-cdk.aws_logs
+aws-cdk.aws_cloudwatch
+aws-cdk.aws_cloudwatch_actions
+aws-cdk.aws_logs_destinations

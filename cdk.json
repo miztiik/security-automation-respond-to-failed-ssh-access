@@ -1,7 +1,14 @@
 {
   "app": "python3 app.py",
   "context": {
-    "@aws-cdk/core:enableStackNameDuplicates": "true",
-    "aws-cdk:enableDiffNoFail": "true"
+    "owner": "Mystique",
+    "github_profile": "https://github.com/miztiik",
+    "youtube_profile": "https://youtube.com/c/valaxytechnologies",
+    "service_name": "security_automation_respond_to_failed_ssh_access",
+    "env": {
+      "production": {
+        "env_name": "production"
+      }
+    }
   }
 }

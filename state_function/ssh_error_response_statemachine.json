@@ -1,0 +1,49 @@
+{
+  "StartAt": "Qurantine EC2 Instance",
+  "States": {
+    "Qurantine EC2 Instance": {
+      "Next": "Notify InfoSecOps",
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:us-east-1:313487964768:function:quarantine_ec2_instance",
+      "ResultPath": "$"
+    },
+    "Notify InfoSecOps": {
+      "Next": "SSH Errors Response Complete?",
+      "Parameters": {
+        "TopicArn": "arn:aws:sns:us-east-1:313487964768:InfoSecOpsTopic",
+        "Message.$": "$.message",
+        "Subject": "SSH Error Response Notification"
+      },
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sns:publish"
+    },
+    "SSH Errors Response Complete?": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.SdkHttpMetadata.HttpStatusCode",
+          "NumericEquals": 200,
+          "Next": "SSH Error Response Actions Succeeded"
+        },
+        {
+          "Not": {
+            "Variable": "$.SdkHttpMetadata.HttpStatusCode",
+            "NumericEquals": 200
+          },
+          "Next": "SSH Error Response Actions Failed"
+        }
+      ],
+      "Default": "SSH Error Response Actions Failed"
+    },
+    "SSH Error Response Actions Failed": {
+      "Type": "Fail",
+      "Error": "Check Logs",
+      "Cause": "All Response Actions were NOT completed"
+    },
+    "SSH Error Response Actions Succeeded": {
+      "Type": "Succeed",
+      "Comment": "All Response Action Completed Successfully"
+    }
+  },
+  "TimeoutSeconds": 300
+}
