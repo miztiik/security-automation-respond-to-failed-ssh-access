@@ -73,9 +73,9 @@ That is exactly what we are going to do right now using, `AWS CloudWatch`, `AWS 
 
         ```sh
         aws cloudformation deploy \
-                --template-file ./cdk.out/security-automation-respond-to-failed-ssh-access.template.json \
-                --stack-name "MiztiikAutomationStack" \
-                --capabilities CAPABILITY_IAM
+            --template-file ./cdk.out/security-automation-respond-to-failed-ssh-access.template.json \
+            --stack-name "MiztiikAutomationStack" \
+            --capabilities CAPABILITY_IAM
         ```
 
 1. ## Testing the solution
