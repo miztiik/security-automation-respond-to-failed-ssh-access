@@ -7,13 +7,13 @@ with open("README.md") as fp:
 
 setuptools.setup(
     name="security_automation_respond_to_failed_ssh_access",
-    version="0.0.1",
+    version="1.0.0",
 
-    description="An empty CDK Python app",
+    description="security_automation_respond_to_failed_ssh_access",
     long_description=long_description,
     long_description_content_type="text/markdown",
 
-    author="author",
+    author="Mystique",
 
     package_dir={"": "security_automation_respond_to_failed_ssh_access"},
     packages=setuptools.find_packages(where="security_automation_respond_to_failed_ssh_access"),
