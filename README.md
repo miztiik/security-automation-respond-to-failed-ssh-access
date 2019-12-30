@@ -25,11 +25,14 @@ That is exactly what we are going to do right now using, `AWS CloudWatch`, `AWS 
 
     - **EC2 Instance**: We will use this instance to attack
         - This instance will be pre-baked with cloudwatch agent to send `ssh` logs to Cloudwatch LogGroups
+    - **CloudWatch LogGroup**: Stores the `ssh` logs from EC2
+        - A Lambda function will be subscribed to this log group
     - **Lambda**: Triggers the step function to isolate instance
         - The trigger is based on `ssh_invalid_user` log filter
+        - Pass the `inst_id` to the step function
     - **StepFunction**:
-        - If **EXTREME REMEDIATION ACTION**: Isolate the EC2 instance with quarantine security group
-            - As this is a demo, I am using a quarantine SG. You can modify this lambda to suit your needs
+        - *EXTREME REMEDIATION ACTION*: Isolate the EC2 instance with quarantine security group
+            - As this is a demo, This automation will quarantine the EC2 Instance with SG. You can modify this lambda to suit your needs
         - Notify InfoSecOps
     - **CloudWatch Alarms**
         - Invalid User Alarm
@@ -54,6 +57,7 @@ That is exactly what we are going to do right now using, `AWS CloudWatch`, `AWS 
         git clone https://github.com/miztiik/security-automation-respond-to-failed-ssh-access.git
         cd security-automation-respond-to-failed-ssh-access
         source .env/bin/activate
+        pip install -r requirements.txt
         ```
 
       The very first time you deploy an AWS CDK app into an environment _(account/region)_, you’ll need to install a `bootstrap stack`, Otherwise just go ahead and deploy using `cdk deploy`
@@ -76,11 +80,11 @@ That is exactly what we are going to do right now using, `AWS CloudWatch`, `AWS 
 
 1. ## Testing the solution
 
-    1. Goto EC2>SecurityGroup>Update port22 rule to allow only your IP(to stop the world attacking the server)
+    1. Goto EC2>SecurityGroup>Update port22 rule to allow only your IP(by default it allows ssh traffic from within the vpc)
     1. Goto `AWS SNS` subscribe yourself to the `InfoSecOps` SNS Topic.
     1. Use the commands given in the cloudformation template to trigger `invalid_ssh_user` logs,
     1. You should receive an email with remediation action
-    1. Check the step functions for execution( The EC2 instance also must have a new SG attached to it)
+    1. Check the step functions for execution(The EC2 instance also must have a new SG attached to it)
         You should be able to see something like this for a successful remediation.
     ![miztiik_security_automation_remediate_weak_s3_policy](images/security_automation_respond_to_failed_ssh_access_success.png)
 

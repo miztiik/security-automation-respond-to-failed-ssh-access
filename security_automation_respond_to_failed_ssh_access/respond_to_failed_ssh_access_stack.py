@@ -48,9 +48,11 @@ class RespondToFailedSshAccessStack(core.Stack):
             description="Allow internet access from the world",
             allow_all_outbound = True
             )
-        weak_sg.add_ingress_rule(_ec2.Peer.any_ipv4(), 
+            # vpc_cidr_block
+        # weak_sg.add_ingress_rule(_ec2.Peer.any_ipv4(), 
+        weak_sg.add_ingress_rule(_ec2.Peer.ipv4(vpc.vpc_cidr_block),
             _ec2.Port.tcp(22),
-            "Allow internet access from the world."
+            "Allow SSH access from the VPC Only."
             )
 
         # We are using the latest AMAZON LINUX AMI

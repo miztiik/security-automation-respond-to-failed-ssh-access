@@ -323,8 +323,13 @@
         ],
         "SecurityGroupIngress": [
           {
-            "CidrIp": "0.0.0.0/0",
-            "Description": "Allow internet access from the world.",
+            "CidrIp": {
+              "Fn::GetAtt": [
+                "abacVPC9D48DD0B",
+                "CidrBlock"
+              ]
+            },
+            "Description": "Allow SSH access from the VPC Only.",
             "FromPort": 22,
             "IpProtocol": "tcp",
             "ToPort": 22
