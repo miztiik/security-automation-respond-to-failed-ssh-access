@@ -79,6 +79,7 @@ def awslogs_handler(event):
         if 'data' in event['awslogs']:
             try:
                 log_data = zlib.decompress(base64.b64decode(event["awslogs"]["data"]), 16 + zlib.MAX_WBITS)
+              # json.loads(zlib.decompress(base64.b64decode(event['awslogs']['data']), zlib.MAX_WBITS | 32))
                 log_data = log_data.decode("utf-8")
                 resp['logs'] = json.loads(log_data)
                 resp['inst_id'] = resp['logs'].get('logStream')
