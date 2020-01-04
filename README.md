@@ -1,5 +1,5 @@
 
-# Security Automation: Monitor & Defend your servers against SSH Intrusion Attempts
+# 👮Security Automation: Monitor & Defend your servers against SSH Intrusion Attempts
 
 - Do you monitor `invalid ssh user` login attempts?
 - Do you monitor `invalid ssh key` login attempts?
