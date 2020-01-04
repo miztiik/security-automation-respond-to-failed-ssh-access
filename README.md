@@ -21,7 +21,7 @@ That is exactly what we are going to do right now using, `AWS CloudWatch`, `AWS 
 
 1. ## Solution Overview
 
-    In this repo, I have included a cloudformation template that provisions the resources to setup a fully automatic policy remedation engine.
+    In this repo, I have included a cloudformation template that provisions the resources to setup a fully automatic remedation engine.
 
     - **EC2 Instance**: We will use this instance to attack
         - This instance will be pre-baked with cloudwatch agent to send `ssh` logs to Cloudwatch LogGroups
@@ -97,9 +97,9 @@ That is exactly what we are going to do right now using, `AWS CloudWatch`, `AWS 
 
 1. ## Additional Comments
 
-    As mentioned earlier, this is a reactive solution. This automation should not be the primary means of defence against weak policies. You should consider,
+    As mentioned earlier, this is a reactive solution. This automation should not be the primary means of defence against weak security controls. You should consider,
 
-    - Who has permissions to change bucket permissions? Setup proper Bucket/IAM Policies
+    - Who has permissions to change SSH Keys.
     - Are those permissions restricted only the resources they own? - Refer [Attribute Based Access Control - ABAC](https://github.com/miztiik/attribute-based-access-control-ec2)
     - Are you auditing those privileges automatically?
     - If all else fails, do you have mechanisms that will automatically respond to events?
