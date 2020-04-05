@@ -22,15 +22,18 @@ class global_args:
     '''
     OWNER                       = "MystiqueInfoSecurity"
     ENVIRONMENT                 = "production"
-    SOURCE_INFO                 = "https://github.com/miztiik/security-automation-respond-to-failed-ssh-access"
+    REPO_NAME                   = "security-automation-respond-to-failed-ssh-access"
+    SOURCE_INFO                 = f'https://github.com/miztiik/{REPO_NAME}'
     INFO_SEC_OPS_EMAIL          = "INFOSECOPS@EMAIL.COM"
+    VERSION                     = "2020_03_28"
+
 
 class RespondToFailedSshAccessStack(core.Stack):
 
     def __init__(self, scope: core.Construct, id: str, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
 
-        # Lets create couple of instances to test
+        # Lets create couple of instances to test):
         vpc = _ec2.Vpc(
                 self, "abacVPC",
                 cidr="10.13.0.0/21",

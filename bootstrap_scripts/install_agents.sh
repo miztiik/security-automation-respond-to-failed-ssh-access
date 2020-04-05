@@ -1,5 +1,3 @@
-#!/bin/bash
-#!/bin/bash
 #!/bin/bash -xe
 
 # Lets log everything to console for being lazy (not recommended)
